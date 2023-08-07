@@ -268,41 +268,129 @@ public class ArrayPractice {
 		System.out.print("문자열 : ");
 		String input = sc.next();
 		
-		char[] arr = new char[input.length()];
-		System.out.print("문자열에 있는 문자 : ");;
 		
-		int count = 0;
-		for(int i = 0; i < arr.length; i++) {
-			arr[i] = input.charAt(i);
-			count++;
-			
-			for(int x = 0; x < i; x++) {
-				if(arr[x] == arr[i]) {
-				count--;	
-				break;
-			}
-		}
-	}
-		System.out.println(count);
+		char[] arr = new char[input.length()];
+
+		System.out.print("문자열에 있는 문자 : ");;
 	}
 	
 	public void practice14() {
 		
+//		사용자가 입력한 배열의 길이만큼의 String 배열을 선언 및 할당하고
+//		배열의 인덱스에 넣을 값 역시 사용자가 입력하여 초기화 하세요.
+//		단, 사용자에게 배열에 값을 더 넣을지 물어보고 몇 개를 더 입력할 건지,
+//		늘린 곳에 어떤 데이터를 넣을 것인지 받으세요.
+//		사용자가 더 이상 입력하지 않겠다고 하면 배열 전체 값을 출력하세요.
+		
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.print("배열의 크기를 입력하세요 : ");
+		int input1  = sc.nextInt();
+		
+		String[] arr = new String[input1];
+		
+
+	
+		
+		
+
 	}
+	
+	
 	public void practice15() {
 		
+		String[][] arr = new String[3][3];
+			
+
+		for(int row = 0; row < 3; row++) {
+			for(int col = 0; col < 3; col++) {
+				arr[row][col] = "(" + row + ", " + col + ")";
+				System.out.print(arr[row][col]);
+			}
+			System.out.println();
+		}
 	}
+	
+	
 	
 	public void practice16() {
 		
+		int[][] arr = new int[4][4];
+		
+		int count = 0;
+		
+		for(int row = 0; row < arr.length; row++ ) {
+			for(int col = 0; col <arr[row].length; col++) {
+				arr[row][col] = count;
+				count++;
+				System.out.print(count + " ");
+			}
+			System.out.println();
+			
+		}
 	}
+	
+	
 	
 	public void practice17() {
 		
+		int[][] arr = new int[4][4];
+		
+		int count = 17;
+		
+		for(int row = 0; row < arr.length; row++ ) {
+			for(int col = 0; col <arr[row].length; col++) {
+				arr[row][col] = count;
+				count--;
+				System.out.print(count + " ");
+			}
+			System.out.println();
+		}
 	}
+	
 	
 	public void practice18() {
 		
+		int[][] arr  = new int[4][4];
+		
+		
+	}
+	
+	
+	
+	public void practice19() {
+		
+		Scanner sc = new Scanner(System.in);
+		
+		boolean flag = false;
+		
+		while(flag = true) {
+		System.out.print("행 크기 : ");
+		int input1 = sc.nextInt();
+		
+		System.out.print("열 크기 : ");
+		int input2 = sc.nextInt();
+		
+		if(input1 < 1 || input1 > 10 || input1 < 1 || input1 > 10) {
+			System.out.println("반드시 1 ~ 10사이의 정수를 입력해야 합니다.");
+		} else {
+			flag = true;
+			}
+		char[][] arr = new char[input1][input2];
+		}
+		
+		
+		
+		
+		}
+		
+		
+	
+	public void practice20() {
+		
+	}
+	public void practice21() {
+		
 	}
 	
 	
@@ -312,7 +400,27 @@ public class ArrayPractice {
 	
 	
 	
-		
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	}
 	
 	
