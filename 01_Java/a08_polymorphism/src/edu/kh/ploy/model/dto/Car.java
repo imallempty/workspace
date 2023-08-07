@@ -43,7 +43,13 @@ public class Car extends Object{
 	public String toString() {
 		return "Car [wheel=" + wheel + ", seat=" + seat + ", fuel=" + fuel + "]";
 	}
-
+	
+	public void bindingTest() {
+		System.out.println("Car 자료형 입니다.");
+		
+	}
+	
+	
 	
 	
 	

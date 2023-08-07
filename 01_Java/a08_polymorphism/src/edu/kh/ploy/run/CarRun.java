@@ -3,7 +3,7 @@ package edu.kh.ploy.run;
 import edu.kh.ploy.model.dto.Car;
 import edu.kh.ploy.model.dto.Porsche;
 import edu.kh.ploy.model.dto.Spark;
-
+import edu.kh.ploy.model.servcie.PolyService;
 
 public class CarRun {
 	public static void main(String[] args) {
@@ -90,7 +90,58 @@ public class CarRun {
 		
 		System.out.println(  ( (Spark)carArr[2] ).getDiscountRate() );
 
+		System.out.println("-------------------------------------------------");
+	
+		// PolyService 객체 생성
+		PolyService service  = new PolyService();
+		
+		for(int i = 0; i < 6; i++) {
+			
+			Car car1  = service.selectOne(i); // arr에서 0번 인덱스 얻어오기
+			
+			System.out.println("===========================");
+			
+			if(car1 != null) { // 인덱스 정상 범위
+				
+				System.out.println("바퀴 수 : " + car1.getWheel());
+				
+				System.out.println("좌석 수 : " + car1.getSeat());
+				
+				System.out.println("연료 : " + car1.getFuel());
+				
+				// Porsche인 경우  뚜껑 열림?
+				// Spark인 경우 할인율:
+				
+				// 참조변수 instanceof 클래스명
+				// ->  참조 변수가 참조하는 객체가 클래스명 타입을 가지고 있는가?
+				// 								   클래스명 객체인가?
+				//								   클래스명 타입과 상속 관계인가?
+				//								   클래스명 타입으로 형변환이 가능한가?
+				
+				
+				if(car1 instanceof Porsche) { 
+					System.out.println("뚜껑 열림?" + ((Porsche)car1).isOpenTheDoor() );
+				}
+				
+				if(car1 instanceof Spark) {
+					System.out.println("할인율 : " + ((Spark)car1).getDiscountRate());
+				}
+				
+				// ClassCastException
+				// -> 올바르지 않은 바료형으로 형변환 시 발생
+				// -> Spark 객체를 참조하던 car1을 Porsche 타입으로 변경
+				// 	   Porsche 참조 변수 = Spark 객체 -> 부모 자식이 아니니깐 다형성 적용 x
+				
+			} else {
+				System.out.println("해당하는 인덱스가 없습니다.");
+			}
+		}
+	
+		System.out.println("****************");
+		
+		// 바인딩 확인
+		service.printCar();
 		
 	}
-
+	
 }

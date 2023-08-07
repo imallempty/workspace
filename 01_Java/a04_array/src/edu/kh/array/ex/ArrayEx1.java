@@ -279,7 +279,7 @@ public class ArrayEx1 {
 			}
 			
 			else { // 정상 입력  
-				counts[input]++; // 주문한 메뉴 카운트 증ㄱ사
+				counts[input]++; // 주문한 메뉴 카운트 증가
 				sum += prices[input]; // 가격 누적
 			}
 		} // while 종료

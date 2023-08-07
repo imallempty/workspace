@@ -58,8 +58,6 @@ public class ArrayPractice {
 		
 		int[] arr = new int[5];
 		
-		
-		
 		for(int i = 0; i < 5; i++) {
 			System.out.printf("입력 %d : ", i);
 			int input = sc.nextInt();
@@ -133,18 +131,15 @@ public class ArrayPractice {
 		char[] arr = new char[input.length()];
 		
 		for(int i = 0; i < arr.length; i++) {
-			if(i < 8 ) {
 				arr[i] = input.charAt(i) ;
-			} else {
-			
-			}
-			
-			
-			System.out.print(arr[i]);
+			} 
+		
+		
+		
 		}
 		
 		
-	}
+	
 	
 	
 	public void practice8() {
@@ -377,18 +372,39 @@ public class ArrayPractice {
 			flag = true;
 			}
 		char[][] arr = new char[input1][input2];
+		
+		for(int row = 0; row < arr.length; row++ ) {
+			for(int col = 0; col < arr[row].length; col++) {
+				int random = (int)(Math.random() * 10 + 65);
+				arr[row][col] = (char)random;
+				System.out.print(arr[row][col] + " ");
+			}
+	
+			System.out.println();
 		}
+		break;
 		
-		
-		
+		}
 		
 		}
 		
 		
 	
 	public void practice20() {
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.print("행의 크기 : ");
+		int input = sc.nextInt();
+		
+		for(int i = 0; i < input; i++) {
+		System.out.printf("%d열의 크기 : ", i);
+		int num = sc.nextInt();
+		}
+		
 		
 	}
+		
+	
 	public void practice21() {
 		
 	}
