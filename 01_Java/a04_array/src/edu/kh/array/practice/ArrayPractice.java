@@ -15,7 +15,6 @@ public class ArrayPractice {
 			
 				if( i % 2 == 0) {
 					sum += i;
-				}
 				
 			}
 		System.out.println();
@@ -116,8 +115,30 @@ public class ArrayPractice {
 	
 	
 	public void practice6() {
-		
-	}
+	      
+	      Scanner sc = new Scanner(System.in);
+	      
+	      System.out.print("정수 : ");
+	      int input  = sc.nextInt();
+	      
+	      int[] arr = new int[input];
+	      
+	      for(int index = 0; index < arr.length; index++) {
+	         System.out.printf("배열 %d번째 인덱스에 넣을 값 : ", index);
+	         arr[index] = sc.nextInt();
+	         }
+	      
+	      int sum = 0;
+	      
+	      for(int index = 0; index < arr.length; index++) {
+	         System.out.printf("%d ", arr[index]);
+	         sum += arr[index];
+	         }
+	      System.out.println();
+	      System.out.println("총합 : " + sum);
+	      
+	      
+	   }
 	
 	
 	public void practice7() {
@@ -143,8 +164,29 @@ public class ArrayPractice {
 	
 	
 	public void practice8() {
-		
-	}
+	      
+	      Scanner sc = new Scanner(System.in);
+	      
+	      while(true) {
+	         
+	         System.out.print("정수 : ");
+	         int input = sc.nextInt();
+	         
+	         int[] arr = new int[input];
+	         
+	         if(input % 2 == 0 || input < 3) {
+	            System.out.println("다시 입력하세요");
+	         }
+	         
+	         for(int num1 = 0; num1 < (arr.length + 1)/2; num1++) {
+	            arr[num1] = num1 + 1; 
+	            System.out.print(arr[num1]);
+	         } 
+	         
+	       
+	      }
+	         
+	      }
 	
 	
 	public void practice9() {
