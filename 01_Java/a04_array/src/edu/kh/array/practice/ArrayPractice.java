@@ -19,7 +19,7 @@ public class ArrayPractice {
 			}
 		System.out.println();
 		System.out.println("짝수 번째 인덱스 합 : " + sum);
-		}
+		}}
 	
 	public void practice2() {
 		
