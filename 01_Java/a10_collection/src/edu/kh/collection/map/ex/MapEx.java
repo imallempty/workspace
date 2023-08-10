@@ -8,7 +8,7 @@ import edu.kh.collection.list.model.dto.Student;
 
 public class MapEx {
 	
-	/* Map : 특정 키워드(key)르 입려갛면
+	/* Map : 특정 키워드(key)를 입력하면
 	 * 		 해당되는 상세한 값(value)를 얻을 수 있는 컬렉션 객체
 	 * 
 	 * - K:V 한쌍으로 데이터를 저장(K:V 한쌍을 묶어서 Entry라고 부름)
