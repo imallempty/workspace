@@ -8,12 +8,15 @@ public class IORun {
 		
 		IOService service = new IOService();
 		
-		service.byteOutPut();
-		
-		service.charOutPut();
-		
+//		service.byteOutPut();
+//		
+//		service.charOutPut();
+//		
 //		service.byteInput();
-		service.charInput();
+//		service.charInput();
+//		service.fileCopy();
+//		service.objectOutPut();
+		service.objectInPut();
 	}
 
 }
