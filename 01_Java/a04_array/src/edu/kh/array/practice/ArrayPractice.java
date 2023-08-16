@@ -150,10 +150,21 @@ public class ArrayPractice {
 		String input = sc.next();
 		
 		char[] arr = new char[input.length()];
+		char[] narr = new char[input.length()];
 		
 		for(int i = 0; i < arr.length; i++) {
 				arr[i] = input.charAt(i) ;
 			} 
+		
+		for(int i = 0; i < arr.length; i++) {
+			if(i < 8) {
+				narr[i] = arr[i];
+				System.out.print(narr[i]);
+			} else{
+				narr[i] = '*';
+				System.out.print(narr[i]);
+			}
+		}
 		
 		
 		
@@ -176,12 +187,16 @@ public class ArrayPractice {
 	         
 	         if(input % 2 == 0 || input < 3) {
 	            System.out.println("다시 입력하세요");
+	         }else {
+	        	 
+	        	 for(int num1 = 0; num1 < (arr.length + 1)/2; num1++) {
+	 	            arr[num1] = num1 + 1; 
+	 	            System.out.print(arr[num1]);
+	 	         } 
+	        	 
 	         }
 	         
-	         for(int num1 = 0; num1 < (arr.length + 1)/2; num1++) {
-	            arr[num1] = num1 + 1; 
-	            System.out.print(arr[num1]);
-	         } 
+	         
 	         
 	       
 	      }
@@ -287,9 +302,7 @@ public class ArrayPractice {
 		}
 		// 오름차순은 못함
 		
-		for(int i = 0; i < arr.length; i++) {
-			System.out.print(arr[i] + " ");
-		}
+		
 		
 	}
 	
