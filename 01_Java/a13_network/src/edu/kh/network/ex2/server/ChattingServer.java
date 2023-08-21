@@ -13,7 +13,6 @@ public class ChattingServer {
 
 	public void start() {
 		Scanner sc = new Scanner(System.in);
-		
 		System.out.print("서버 이름 입력 : ");
 		String serverName = sc.nextLine();
 		
@@ -26,7 +25,7 @@ public class ChattingServer {
 		
 		try {
 			// 2. 클라이언트가 접속할 수 있는 서버소켓을 생성하고 접속 대기 
-			serverSocket = new ServerSocket();
+			serverSocket = new ServerSocket(port);
 			System.out.println("<<Server Start>>");
 			System.out.println("<<클라이언트 접속 대기중...>>");
 			
