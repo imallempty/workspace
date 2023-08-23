@@ -292,8 +292,8 @@ JOIN LOCATION ON (LOCATION_ID = LOCAL_CODE);
 
 -- 오라클 전용
 SELECT EMP_NAME, DEPT_TITLE, LOCAL_NAME
-FROM EMPLOYEE, DEPARTMENT, LOCATION ;
-WHERE DEPT = DEPT_ID
+FROM EMPLOYEE, DEPARTMENT, LOCATION 
+WHERE DEPT_CODE = DEPT_ID
 AND LOCATION_ID = LOCAL_CODE;
 -- 조인 순서를 지키지 않은 경우(에러발생)
 
@@ -305,8 +305,10 @@ AND LOCATION_ID = LOCAL_CODE;
 -- 사번, 이름, 직급명, 부서명, 근무지역명, 급여를 조회하세요
 
 -- ANSI
-SELECT EMP_ID, EMP_NAME, DEPT_TITLE, JOB_TITLE, LOCLA_NAEM, SALARY
-FROM EMPLOYEE ;
+SELECT EMP_ID, EMP_NAME, JOB_NAME, DEPY_TITLE, LOCAL_NAME, SALARY
+FROM EMPLOYEE 
+
+
 -- 오라클 전용
 
 
@@ -319,28 +321,56 @@ FROM EMPLOYEE ;
 
 -- 1. 주민번호가 70년대 생이면서 성별이 여자이고, 성이 '전'씨인 직원들의 
 -- 사원명, 주민번호, 부서명, 직급명을 조회하시오.
+SELECT EMP_NAME, EMP_NO, DEPT_TITLE, JOB_NAME
+FROM EMPLOYEE E
+JOIN JOB J ON(J.JOB_CODE = E.JOB_CODE)
+JOIN DEPARTMENT ON(DEPT_CODE = DEPT_ID)
+WHERE SUBSTR(EMP_NO, 1,1) = 7
+	AND SUBSTR(EMP_NO,8,1) = 2
+	AND SUBSTR(EMP_NAME,1,1) ='전';
 
-      
-      
--- 2. 이름에 '형'자가 들어가는 직원들의 사번, 사원명, 부서명을 조회하시오.
 
+
+-- 2. 이름에 '형'자가 들어가는 직원들의 사번, 사원명, 직급명을 조회하시오.
+SELECT EMP_ID, EMP_NAME, JOB_NAME
+FROM EMPLOYEE E
+JOIN JOB J ON(J.JOB_CODE = E.JOB_CODE)
+WHERE EMP_NAME LIKE '%형%';
 
 
 -- 3. 해외영업 1부, 2부에 근무하는 사원의 
--- 사원명, 직급명, 부서코드, 부서명을 조회하시오.
+-- 사원명, 직급명, 부서코드, 부서명을 
+-- 사번 오름차순으로 조회하시오.
+SELECT EMP_NAME, JOB_NAME, DEPT_CODE, DEPT_TITLE
+FROM EMPLOYEE E
+JOIN DEPARTMENT ON(DEPT_CODE = DEPT_ID)
+JOIN JOB J ON(J.JOB_CODE = E.JOB_CODE)
+WHERE DEPT_TITLE IN('해외영업1부','해외영업2부')
+ORDER BY EMP_ID;
 
 
 --4. 보너스포인트를 받는 직원들의 사원명, 보너스포인트, 부서명, 근무지역명을 조회하시오.
-
+SELECT EMP_NAME, BONUS, DEPT_TITLE, LOCAL_NAME
+FROM EMPLOYEE 
+JOIN DEPARTMENT ON(DEPT_ID = DEPT_CODE)
+JOIN LOCATION ON (LOCATION_ID = LOCAL_CODE)
+WHERE BONUS > 0;
 
 --5. 부서가 있는 사원의 사원명, 직급명, 부서명, 지역명 조회
-
+SELECT EMP_NAME, JOB_NAME, DEPT_TITLE, LOCAL_NAME
+FROM EMPLOYEE E
+JOIN DEPARTMENT ON(DEPT_ID = DEPT_CODE)
+JOIN LOCATION ON (LOCATION_ID = LOCAL_CODE)
+JOIN JOB J ON(J.JOB_CODE = E.JOB_CODE)
+WHERE DEPT_ID IS NOT NULL;
 
 -- 6. 급여등급별 최소급여(MIN_SAL)를 초과해서 받는 직원들의
---사원명, 직급명, 급여, 연봉(보너스포함)을 조회하시오.
---연봉에 보너스포인트를 적용하시오.
-
-
+-- 사원명, 직급명, 급여, 연봉(보너스포함)을 조회하시오.
+-- 연봉에 보너스포인트를 적용하시오.
+SELECT EMP_NAME, SALARY, SALARY * 12 * (1+BONUS)
+FROM EMPLOYEE 
+GROUP BY SAL_LEVEL, EMP_NAME, SALARY, SALARY * 12 * (1+BONUS)
+HAVING ;
 
 -- 7.한국(KO)과 일본(JP)에 근무하는 직원들의 
 -- 사원명, 부서명, 지역명, 국가명을 조회하시오.
