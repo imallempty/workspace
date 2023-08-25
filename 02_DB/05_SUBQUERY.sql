@@ -457,19 +457,20 @@ WHERE (JOB_CODE ,SALARY) IN(SELECT JOB_CODE, TRUNC(AVG(SALARY),-4)
 
 -- 직급별 급여 평균보다 급여를 많이 받는 직원의 
 -- 이름, 직급코드, 급여 조회
-SELECT EMP_NAME, JOB_CODE, SALARY,
-	(SELECT AVG(SALARY)
-	 FROM EMPLOYEE SUB
-	 WHERE SUB.JOB_CODE = MAIN.JOB_CODE) "직급별 평균"
+
+SELECT EMP_NAME, JOB_CODE, SALARY
 FROM EMPLOYEE MAIN
 WHERE SALARY > (SELECT AVG(SALARY)
 				FROM EMPLOYEE SUB
-				WHERE SUB.JOB_CODE = MAIN.JOB_CODE);
+				WHERE SUB.JOB_CODE = MAIN.JOB_CODE);					
+														
 						
+
 -- 부서별 입사일이 가장 빠른 사원의
 --    사번, 이름, 부서명(NULL이면 '소속없음'), 직급명, 입사일을 조회하고
 --    입사일이 빠른 순으로 조회하세요
 --    단, 퇴사한 직원은 제외하고 조회하세요
+
 SELECT EMP_ID, EMP_NAME, DEPT_CODE,
 		NVL(DEPT_TITLE,'소속없음'), JOB_NAME, HIRE_DATE
 FROM EMPLOYEE MAIN -- 메인 별칭
@@ -495,9 +496,9 @@ ORDER BY HIRE_DATE;
 --	 	AND SUB.DEPT_CODE IS NULL
 --	 	AND ENT_YN != 'Y')
 --	 
---	)		
-
-
+--	)			
+			
+	
 
 -- 사수가 있는 직원의 사번, 이름, 부서명, 사수사번 조회
 SELECT EMP_ID, EMP_NAME, DEPT_TITLE, MANAGER_ID
@@ -505,12 +506,13 @@ FROM EMPLOYEE MAIN
 LEFT JOIN DEPARTMENT ON(DEPT_CODE = DEPT_ID)
 WHERE EXISTS
 	(SELECT EMP_ID 
-	FROM EMPLOYEE SUB
+ 	FROM EMPLOYEE SUB
 	WHERE SUB.EMP_ID = MAIN.MANAGER_ID);
---> 서브쿼리의 조회 결과가 있고, 없고가 중요!
+--> 서브쿼리의 조회 결과가 있고, 없고가 중요!		
 
--- EXISTS(서브쿼리)
---> 서브쿼리 결과가 있으면 TRUE, 없으면 FLASE
+-- EXISTS (서브쿼리)
+--> 서브쿼리 결과가 있으면 TRUE, 없으면 FALSE
+
 			
 
 ----------------------------------------------------------------------------------
@@ -675,7 +677,7 @@ FROM EMPLOYEE;
  * 2. SELECT 해석 순서
  * 		+ 별칭 사용이 가능한 부분
  * 		EX) ORDER BY 절에서는 SELECT절에서 해석된 별칭 사용 가능
- * 		EX) 인라인뷰에서 지정된 별칭을 메인뭐리에서도 똑같이 사용해야 된다.
+ * 		EX) 인라인뷰에서 지정된 별칭을 메인쿼리에서도 똑같이 사용해야 된다.
  * 
  * 3. 여러 테이블을 이용한 SELECT 진행 시
  * 	  컬럼명이 겹치는 경우 이를 해결하는 방법
@@ -770,21 +772,6 @@ WHERE (DEPT_CODE, MANAGER_ID)
 -- 입사일이 빠른 순으로 조회하시오
 -- 단, 퇴사한 직원은 제외하고 조회..
 
-SELECT EMP_ID, EMP_NAME, DEPT_CODE,
-		NVL(DEPT_TITLE,'소속없음'), JOB_NAME, HIRE_DATE
-FROM EMPLOYEE MAIN -- 메인 별칭
-LEFT JOIN DEPARTMENT ON(DEPT_CODE = DEPT_ID)
-JOIN JOB USING(JOB_CODE)
-
-WHERE HIRE_DATE = /*(특정 부서 입사일이 가장 빠른 사람 SELECT)*/
-	
-	(SELECT MIN(HIRE_DATE) 
-	 FROM EMPLOYEE SUB -- SUB 별칭
-	 WHERE NVL(SUB.DEPT_CODE, 'XXX') = NVL(MAIN.DEPT_CODE, 'XXX')
-	 AND ENT_YN != 'Y' 
-	)
-
-ORDER BY HIRE_DATE;
 
 
 -- 7. 직급별 나이가 가장 어린 직원의
@@ -795,6 +782,7 @@ SELECT EMP_ID, EMP_NAME, JOB_NAME,
 (SUBSTR(EMP_NO, 1, 2) - 23) 나이, SALARY * 12 (1+BONUS) 보너스 포함 연봉
 FROM EMPLOYEE 
 JOIN JOB USING(JOB_CODE)
+GROUP BY JOB_CODE
 ORDER BY 나이 DESC;
 
 
