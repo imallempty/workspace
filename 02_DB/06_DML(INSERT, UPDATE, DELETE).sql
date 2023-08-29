@@ -137,7 +137,7 @@ SELECT * FROM EMPLOYEE2;
 ---------------------------------------
 
 -- * 조건절을 설정하지 않고 UPDATE 구문 실행 시 모든 행의 컬럼 값 변경.
-ELECT * FROM DEPARTMENT2;
+SELECT * FROM DEPARTMENT2;
 
 UPDATE DEPARTMENT2
 SET DEPT_TITLE = '인사팀'; -- 모든 행 수정

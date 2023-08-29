@@ -1,7 +1,7 @@
 -- TCL(Transaction Control Language) : 트렌잭션 제어 언어
 -- (Transaction: 업무, 처리)
 
-/* TRANSACTION이란?
+/* (Transaction: 업무, 처리)
  - 데이터베이스의 논리적 연산 단위
  
  - 데이터 변경 사항을 묶어 하나의 트랜잭션에 담아 처리함.
