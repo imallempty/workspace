@@ -68,10 +68,6 @@ public class JDBCExample3 {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-			
-			
 		}
-		
 	}
-
 }
