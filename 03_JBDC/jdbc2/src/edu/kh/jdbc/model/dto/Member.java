@@ -1,16 +1,17 @@
 package edu.kh.jdbc.model.dto;
 
+// DTO (Data Transfer Object) : 데이터 전달용 객체
 public class Member {
-
-	/* DTO의 필드는 DB컬럼과 비슷하게 작성되는 경우가 많음! */
-	/* -> 상황에 따라서 필드가 추가 또는 삭제될 수 있음! (개발자 재량) */
+	
+	/* DTO의 필드는 DB 컬럼과 비슷하게 작성되는 경우가 많음! */
+	/* -> 상황에 따라서 필드가 추가 또는 삭제될 수 있음! (개발자 재량)*/
 	
 	private int memberNo;
 	private String memberEmail;
 	private String memberPw;
 	private String memberNickname;
 	
-	// java, DB의 char 구분하기
+	// java,DB의 char 구분하기!
 	private String memberTel;
 	
 	private String memberAddress;
@@ -22,7 +23,7 @@ public class Member {
 	// 기본 생성자
 	public Member() {}
 	
-	// 매개변수 생성자
+	// 매개 변수 생성자 (alt + shift + s --> o)
 	public Member(String memberEmail, String memberPw, String memberNickname, String memberTel, String memberAddress) {
 		super();
 		this.memberEmail = memberEmail;
@@ -32,12 +33,19 @@ public class Member {
 		this.memberAddress = memberAddress;
 	}
 	
+	public Member(String memberEmail, String memberPw) {
+		this.memberEmail = memberEmail;
+		this.memberPw = memberPw;
+	}
 	
-	// getter/setter
+	
+	
+	
+	// getter/setter (alt + shift + s --> r)
 	public int getMemberNo() {
 		return memberNo;
 	}
-
+	
 
 	public void setMemberNo(int memberNo) {
 		this.memberNo = memberNo;
@@ -99,8 +107,12 @@ public class Member {
 		this.memberDelFl = memberDelFl;
 	}
 
-	
-	
-	
+	// Object.toString() 오버라이딩(alt + shift + s --> s)
+	@Override
+	public String toString() {
+		return "Member [memberNo=" + memberNo + ", memberEmail=" + memberEmail + ", memberPw=" + memberPw
+				+ ", memberNickname=" + memberNickname + ", memberTel=" + memberTel + ", memberAddress=" + memberAddress
+				+ ", enrollDate=" + enrollDate + ", memberDelFl=" + memberDelFl + "]";
+	}
 	
 }
