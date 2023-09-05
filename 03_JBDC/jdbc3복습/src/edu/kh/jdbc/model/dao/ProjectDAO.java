@@ -12,7 +12,6 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import edu.kh.jdbc.model.dto.Board;
 import edu.kh.jdbc.model.dto.Member;
 
 public class ProjectDAO {
@@ -123,7 +122,7 @@ public class ProjectDAO {
 				 // 결과 저장용 변수가 Member 객체를 참조
 				 // == null 아님
 				 
-				 member.setMemberEmail(email);
+				 member.setMemberEmail(memberTel);
 				 member.setMemberNo(memberNo);
 				 member.setMemberNickname(memberNickname);
 				 member.setMemberTel(memberTel);
@@ -189,7 +188,7 @@ public class ProjectDAO {
 				 member = new Member();
 				 // 결과 저장용 변수가 Member 객체를 참조
 				 // == null 아님
-				 member.setMemberEmail(email);
+				 member.setMemberEmail(memberTel);
 				 member.setMemberNo(memberNo);
 				 member.setMemberNickname(memberNickname);
 				 member.setMemberTel(memberTel);
@@ -273,13 +272,6 @@ public class ProjectDAO {
 		
 	}
 
-	/** 회원 정보 수정
-	 * @param conn
-	 * @param nickname
-	 * @param tel
-	 * @param memberNo
-	 * @return
-	 */
 	public int updateMember(Connection conn, String nickname, String tel, int memberNo) {
 		
 		int result = 0;
@@ -308,12 +300,6 @@ public class ProjectDAO {
 		return result;
 	}
 
-	/** 회원 탈퇴
-	 * @param conn
-	 * @param memberNo
-	 * @param pw
-	 * @return
-	 */
 	public int updateDelFl(Connection conn, int memberNo, String pw) {
 		
 		int result = 0; 
@@ -349,12 +335,15 @@ public class ProjectDAO {
 	 * @param memberNo
 	 * @return
 	 */
-	public int insertBoard(Connection conn, String title, String content, int memberNo) {
+	public int insertMember(Connection conn, String title, String content, int memberNo) {
+	int result = 0;
 		
-		int result = 0; // INSERT 결과 저장용 변수
-		
-		String sql = "INSERT INTO BOARD \r\n"
-				+ "VALUES(SEQ_BOARD_NO.NEXTVAL, ?, ?, DEFAULT, DEFAULT, DEFAULT, ?)";
+		String sql = "INSERT INTO MEMBER\r\n"
+				+ "VALUES( SEQ_BOARD_NO.NEXTVAL,\r\n"
+				+ "		'?',\r\n"
+				+ "		'?',\r\n"
+				+ "		DEFAULT, DEFAULT,DEFAULT,\r\n"
+				+ "		'?')";
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
@@ -365,223 +354,13 @@ public class ProjectDAO {
 			
 			result = pstmt.executeUpdate();
 			
-		}catch (Exception e) {
+		} catch (Exception e) {
 			e.printStackTrace();
-		}finally {
-			close(pstmt);
+		} finally {
+			
 		}
 		
 		return result;
 	}
-	
-	/** 게시글 목록 조회
-	 * @param conn
-	 * @param sort
-	 * @return
-	 */
-	public List<Board> selectBoardList(Connection conn) {
 
-		List<Board> boardList = new ArrayList<Board>();
-		
-		String sql = "SELECT BOARD_NO, BOARD_TITLE, \r\n"
-				+ "	TO_CHAR(B_CREATE_DATE, 'YYYY-MM-DD HH24:MI:SS') B_CREATE_DATE,\r\n"
-				+ "	READ_COUNT, MEMBER_NO, MEMBER_NICKNAME \r\n"
-				+ "FROM BOARD \r\n"
-				+ "JOIN MEMBER USING(MEMBER_NO)\r\n"
-				+ "WHERE BOARD_DEL_FL = 'N'\r\n"
-				+ "ORDER BY BOARD_NO DESC";
-		
-		
-		try {
-			pstmt = conn.prepareStatement(sql);
-			rs = pstmt.executeQuery();
-			
-			while(rs.next()) {
-				
-				Board board = new Board();
-				
-				board.setBoardNo(rs.getInt("BOARD_NO"));
-				board.setBoardTitle(rs.getString("BOARD_TITLE"));
-				board.setBoardCreateDate(rs.getString("B_CREATE_DATE"));
-				board.setReadCount(rs.getInt("READ_COUNT"));
-				board.setMemberNo(rs.getInt("MEMBER_NO"));
-				board.setMemberNickname(rs.getString("MEMBER_NICKNAME"));
-	            
-	            boardList.add(board);
-			}
-				
-		} catch (Exception e) {
-			e.printStackTrace();
-			
-		} finally {
-			// 6. 사용한 JDBC 객체 반환
-			close(rs);
-			close(pstmt);
-		}
-		return boardList;
-	}
-	
-
-	/** 게시글 상세 조회
-	 * @param conn
-	 * @param boardNo
-	 * @return
-	 */
-	public Board selectBoard(Connection conn, int boardNo) {
-		// 결과 저장용 변수 선언
-		Board board = null;
-		
-		String sql = "SELECT BOARD_TITLE, BOARD_CONTENT, \r\n"
-				+ "	TO_CHAR(B_CREATE_DATE, 'YYYY-MM-DD HH24:MI:SS') B_CREATE_DATE,\r\n"
-				+ "	READ_COUNT, MEMBER_NO, MEMBER_NICKNAME\r\n"
-				+ "FROM BOARD \r\n"
-				+ "JOIN MEMBER USING(MEMBER_NO)\r\n"
-				+ "WHERE BOARD_DEL_FL = 'N'\r\n"
-				+ "AND BOARD_NO = ?";
-		
-		try {
-			// pstmt 생성
-			pstmt =  conn.prepareStatement(sql);
-			
-			// ?에 알맞은 값 세팅
-			pstmt.setInt(1, boardNo);
-			
-			// sql(SELECT) 수행 후 겨로가 반환 받기
-			rs = pstmt.executeQuery();
-			
-			if(rs.next()){ // 조회 결과가 있을 경우
-		
-				board = new Board();
-				
-	            board.setBoardTitle(rs.getString("BOARD_TITLE"));
-	            board.setBoardContent(rs.getString("BOARD_CONTENT"));
-	            board.setBoardCreateDate(rs.getString("B_CREATE_DATE"));
-	            board.setReadCount(rs.getInt("READ_COUNT"));
-	            board.setMemberNo(rs.getInt("MEMBER_NO"));
-	            board.setMemberNickname(rs.getString("MEMBER_NICKNAME"));
-	            board.setBoardNo(boardNo);
-				
-			}
-			
-		} catch (Exception e) {
-			e.printStackTrace();
-		
-		} finally {
-			close(rs);
-			close(pstmt);
-		}
-		
-		return board;
-	}
-
-	/** 조회수 증가
-	 * @param conn
-	 * @param boardNo
-	 * @return
-	 */
-	public int incrementReadCount(Connection conn, int boardNo) {
-		
-		int result = 0;
-		
-		String sql = "UPDATE BOARD SET \r\n"
-				+ "READ_COUNT = READ_COUNT + 1\r\n"
-				+ "WHERE BOARD_NO = ?";
-		
-		try {
-			
-			pstmt =  conn.prepareStatement(sql);
-			
-			pstmt.setInt(1, boardNo);
-			
-			result = pstmt.executeUpdate();
-			
-		} catch (Exception e) {
-			e.printStackTrace();
-		} finally {
-			close(pstmt);
-		}
-		return result;
-	
-	}
-
-	public int updateBoard(Connection conn, int boardNo, int memberNo) {
-
-		int result = 0;
-		
-		String sql = "SELECT COUNT(*) CHK FROM BOARD\r\n"
-				+ "WHERE BOARD_NO = ?\r\n"
-				+ "AND MEMBER_NO = ?";
-		
-		try {
-			
-			pstmt = conn.prepareStatement(sql);
-			
-			pstmt.setInt(1, boardNo);
-			pstmt.setInt(2, memberNo);
-			
-		} catch (Exception e) {
-			e.printStackTrace();
-		
-		}finally {
-			close(pstmt);
-		}
-		return result;
-	}
-
-	public int updateBoard(Connection conn, String title, String content, int boardNo) {
-		int result = 0;
-	      
-	    String sql = "UPDATE BOARD SET \r\n"
-	          + "BOARD_TITLE = '?',\r\n"
-	          + "BOARD_CONTENT = '?'\r\n"
-	          + "WHERE BOARD_NO = ?";
-	      
-	     try {
-	        pstmt = conn.prepareStatement(sql);
-	         
-	         pstmt.setString(1, title);
-	         pstmt.setString(2, content);
-	         pstmt.setInt(3, boardNo);
-	         
-	         result = pstmt.executeUpdate();
-	         
-	      } catch (Exception e) {
-	         e.printStackTrace();
-	      } finally {
-	         close(pstmt);
-	      }
-	      
-	      
-	      return result;
-	}
-
-
-
-
-
-
-
-
-
-	
-
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 }

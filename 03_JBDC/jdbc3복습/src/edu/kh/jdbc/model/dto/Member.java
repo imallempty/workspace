@@ -126,7 +126,4 @@ public class Member {
 				+ ", enrollDate=" + enrollDate + ", memberDelFl=" + memberDelFl + "]";
 	}
 	
-	
-	
-	
 }

@@ -59,11 +59,27 @@ COMMIT;
 SELECT * FROM BOARD;
 
 
+-- 게시글 번호를 입력 받아 일치하는 게시글의
+-- 제목, 내용, 작성일, 조회수, 작성자번호, 작성자 닉네임 조회
+-- 단, 삭제되지 않은 게시글만 조회 가능(BOARD_DEL_FL = 'N')
+SELECT BOARD_TITLE, BOARD_CONTENT, 
+	TO_CHAR(B_CREATE_DATE, 'YYYY-MM-DD HH24:MI:SS') B_CREATE_DATE,
+	READ_COUNT, MEMBER_NO, MEMBER_NICKNAME
+FROM BOARD 
+JOIN MEMBER USING(MEMBER_NO)
+WHERE BOARD_DEL_FL = 'N'
+AND BOARD_NO = 1;
 
 
+-- 2) 로그인 상태인 경우 게시글 번호를 입력 받아
+-- 해당 게시글 작성 회원 번호(BOARD.MEMBER_NO)와 
+-- 로그인한 회원의 회원 번호(MEMBER.MEMBER_NO)가 일치하는지 확인하는 service 메서드 호출
 
-
-
+-- 
+UPDATE BOARD SET 
+BOARD_TITLE = '',
+BOARD_CONTENT = ''
+WHERE BOARD_NO =  ;
 
 
 
