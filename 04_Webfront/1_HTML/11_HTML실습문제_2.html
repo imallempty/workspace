@@ -6,26 +6,38 @@
   <title>11_HTML 실습문제 2</title>
 </head>
 <body>
+  <form>
+    <fieldset>
+      <legend>납품자 정보</legend>
   
-  <fieldset>
-    <legend>납품자 정보</legend>
+      <ol>
+        <li><p><label> 납품자명 : </label> <input type="text"></p></li>
+        <li><p> <label> email : </label> <input type="email" placeholder="answer@naver.com"></p></li>
+        <li><p><label> 홈페이지 : </label> <input type="url" value="https://"></p></li>
+        <li> <p><label>지역 : </label> <select ><option value="">부산</option></select></li>
+      </ol>
+      
+      
+      
+     
+    </fieldset>
+  
+    <fieldset>
+      <legend>납품 정보</legend>
+  
+      <ul>
+        <p><li><label>상품명 : <input type="text"></label></li></p>
+        <p><li><label>남품수량 : <input type="text" placeholder="최소 100"></label></li></p>
+        <p><li><label>남품수량 : <input type="text" placeholder="최소 100"></label></li></p>
+        <p><li><label>기타사항 : <textarea cols="20" rows="5"></textarea></label></li></p>
+      </ul>
+    </fieldset>
 
-    <p>1. 남품자명 : <input type="text"></p>
-    <p>2. email : <input type="email" placeholder="answer@naver.com"></p>
-    <p>3. 홈페이지 : <input type="url" value="https://"></p>
-    <p>4. 지역 : <select ><option value="">부산</option></select>
-  </fieldset>
+    <br>
+    <button>send message</button>
 
-  <fieldset>
-    <legend>납품 정보</legend>
-
-    <ul>
-      <p><li>상품명 : <input type="text"></li></p>
-      <p><li>남품수량 : <input type="text" placeholder="최소 100"></li></p>
-      <p><li>남품등급 : <input type="range"></li></p>
-      <p><li>기타사항 : <textarea cols="20" rows="5"></textarea></li></p>
-    </ul>
-  </fieldset>
+  </form>
+ 
 
 </body>
 </html>

@@ -6,31 +6,64 @@
   <title>10 HTML 실습문제 1</title>
 </head>
 <body>
-  <p>고객명 : <input type="text"> </p>
-  <p>전화번호 : <input type="number" > </p>
-  <p>E-mail : <input type="email" name="" id=""> </p>
 
-  <p>피자선택 : <select ><option>피자를 선택하세요</option></select></p>
+  <!DOCTYPE html>
+<html lang="en">
 
-  <fieldset>
-    <legend>피자 사이즈</legend>
-    <p><input type="radio" name="size" id="Small" value="Small"> <label for="Small">Small</label> </p>
-    <p><input type="radio" name="size" id="Medium" value="Medium"> <label for="Medium">Medium</label></p>
-    <p><input type="radio" name="size" id="Large" value="Large"> <label for="Large">Large</label></p>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>10_실습문제1</title>
+</head>
 
-  </fieldset>
+<body>
+    <form>
+        <label>고객명 : </label> <input type="text" name="clientName"><br><br>
+        
+        <label>전화번호 : </label> <input type="tel" name="clientPhone"><br><br>
 
-  <fieldset>
-    <legend>토핑 선택</legend>
+        <label>E-mail : </label> <input type="email" name="clientEmail"><br><br>
 
-    <p><input type="checkbox" name="topping" id="bacon"> <label for="bacon">베이컨</label></p>
-      <p><input type="checkbox" name="topping" id="cheese"> <label for="cheese">치즈</label></p>
-      <p><input type="checkbox" name="topping" id="onion"> <label for="onion">양파</label></p>
-      <p><input type="checkbox" name="topping" id="mushroom"> <label for="mushroom">버섯</label></p>
 
-  </fieldset>
 
-  <p>희망 배송 시간 : <input type="time"></p>
-  배송시 요청사항 : <textarea name="request" id="request" cols="20" rows="5"></textarea>
+        <label>피자선택 : </label><select name="pizza"><br>
+            <option selected>피자를 선택하세요</option>
+            <option>치즈 피자</option>
+            <option>페퍼로니 피자</option>
+            <option>포테이토 피자</option>
+            <option>고구마 피자</option>
+        </select>
+        <br> <br>
+
+        <fieldset>
+            <legend>피자 사이즈</legend>
+            <input type="radio" name="size" id="Small" value="Small"> <label for="Small">Small</label> <br><br>
+            <input type="radio" name="size" id="Medium" value="Medium"> <label for="Medium">Medium</label> <br><br>
+            <input type="radio" name="size" id="Large" value="Large"> <label for="Large">Large</label> <br><br>
+
+        </fieldset>
+       
+        <br>
+
+        <fieldset>
+            <legend>토핑 선택</legend>
+            <input type="checkbox" name="topping" id="bacon"> <label for="bacon">베이컨</label> <br><br>
+
+            <input type="checkbox" name="topping" id="cheese"> <label for="cheese">치즈</label> <br><br>
+
+            <input type="checkbox" name="topping" id="onion"> <label for="onion">양파</label> <br><br>
+
+            <input type="checkbox" name="topping" id="mushroom"> <label for="mushroom">버섯</label> <br><br>
+        </fieldset>
+        <br>
+        희망 배송 시간 : <input type="time"> <br><br>
+
+        배송시 요청사항 : <textarea name="request" id="request" cols="20" rows="5"></textarea><br><br>
+        <button>주문하기</button>
+
+    </form>
 </body>
+
 </html>
+
