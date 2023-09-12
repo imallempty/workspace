@@ -1,0 +1,21 @@
+*{
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+boby{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+}
+
+main{
+  width: 1140px;
+  flex-grow: 1;
+  min-height: 500px;
+}
+
+/* ------------------------- header ------------------------- */
+header
