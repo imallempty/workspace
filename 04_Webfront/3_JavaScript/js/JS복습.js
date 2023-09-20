@@ -10,6 +10,7 @@ createBtn.addEventListener("click", e => {
 
   // bingoLength * bingoLength 한 수 만큼 중복되지 않는 난수 생성
   // - Java 컬렉션 중 Set(중복X)과 똑같은 객체 존재!
+
   const set = new Set(); // Set 생성
 
   // set.size : set에 저장된 요소의 수
@@ -20,8 +21,11 @@ createBtn.addEventListener("click", e => {
   }
 
   // set을 array(배열) 변경
-  // Array.from(set) : set을 배열로 변경하여 반환
+  // -  Array.from(set) : set을 배열로 변경하여 반환
   const arr = Array.from(set);
+
+  // console.log(arr);
+
 
   // --------------------------------------------------------------------------
   /* 빙고판 생성 */
@@ -30,13 +34,12 @@ createBtn.addEventListener("click", e => {
   let row;
   let col;
 
-  bingoBoard.innerHTML = "";
+  bingoBoard.innerHTML = ""; // 이전 빙고판 삭제
 
   for (let i = 0; i < arr.length; i++) {
 
     // 각 행의 첫 번째 값이 들어갈 index 차례일 때
-    if (1 % bingoLength == 0) {
-
+    if (i % bingoLength == 0) {
       // 행(div.bingo-row) 만들기
       row = document.createElement("div");
       row.classList.add("bingo-row");
@@ -45,20 +48,26 @@ createBtn.addEventListener("click", e => {
       bingoBoard.append(row);
     }
 
-    // 열(div.bingo-col) 생성
+    // 열(div.bingo-col) 생성 
     col = document.createElement("div");
     col.classList.add("bingo-col");
     col.innerText = arr[i]; // 생성된 열에 난수를 순서대로 대입
 
-    /********************************************/
-    // 생성된 열(col)이 클릭 되었을 때 .check가 없으면 추가, 있으면 제거
+    /* **************************** */
+    // 생성된 열(col)이 클릭 되었을 때
+    // .check가 없으면 추가, 있으면 제거
 
     col.addEventListener("click", e => {
       // e.target : 이벤트가 발생한 요소(클릭된 열)
+
       // 이벤트가 발생한 요소가 check 클래스를 포함하는지 확인
+      // console.log( e.target.classList.contains("check") );
+
+      // check가 있을 때
       if (e.target.classList.contains("check")) {
         e.target.classList.remove("check"); // check 클래스 제거
-      } else {
+
+      } else {  // check가 없을 때
         e.target.classList.add("check"); // check 클래스 추가
       }
 
@@ -201,6 +210,10 @@ function diaCheck(board) {
 }
 
 /* 색상 입력 시 빙고판 글자색 변경 */
-bingoBoard.addEventListener("keyup", () => {
-  bingoBoard.style.Color = fontColor.value;
+fontColor.addEventListener("keyup", e => {
+
+  // 엔터 입력 시 색상변경
+  if (e.key == "Enter") {
+    bingoBoard.style.color = e.target.value;
+  }
 });
