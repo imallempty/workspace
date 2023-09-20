@@ -1,4 +1,4 @@
-d// document : 웹 문서(HTML)
+// document : 웹 문서(HTML)
 // getElementById(아이디) : 아이디가 일치하는 요소를 얻어와라
 const test1 = document.getElementById("test1");
 const test2 = document.getElementById("test2");
