@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>과일가게</title>
+  <link rel="stylesheet" href="../과일가게/과일가게.css">
+</head>
+
+<body>
+
+  <div name="fruit-list">
+    <table>
+      <tbody>
+        <tr>
+          <td><input type="checkbox" class="fruit" id="apple-checkbox"><label for="apple-checkbox">사과</label></td>
+          <td id="apple-price" value="2000">2000원</td>
+          <td><input type="number" min="0" id="apple-count">개</td>
+        </tr>
+
+        <tr>
+          <td><input type="checkbox" class="fruit" id="banana-checkbox"><label for="banana-checkbox">바나나</label></td>
+          <td id="banana-price" value="3000">3000원</td>
+          <td><input type="number" min="0" id="banana">개</td>
+
+        </tr>
+
+        <tr>
+          <td><input type="checkbox" class="fruit" id="melon-checkbox"><label for="melon-checkbox">메론</label></td>
+          <td id="banana-price" value="5000">5000원</td>
+          <td><input type="number" min="0" id="melon-count">개</td>
+        </tr>
+
+      </tbody>
+      <tfoot>
+        <tr>
+          <th>
+            <button id="create-btn">count</button>
+          </th>
+        </tr>
+      </tfoot>
+    </table>
+  </div>
+
+  <span id="result"></span>
+
+  <script src="../과일가게/과일가게.js"></script>
+</body>
+
+</html>

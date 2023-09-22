@@ -1,0 +1,24 @@
+tr{
+  display: flex;
+}
+
+td{
+  width: 60px;
+  height: 60px;
+  border: 1px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 25px;
+  font-weight: bold;
+  user-select: none;
+  cursor: pointer;
+}
+
+td:hover{
+  background-color: #5B0888;
+}
+
+td:active{
+  background-color: #E5CFF7;
+}
