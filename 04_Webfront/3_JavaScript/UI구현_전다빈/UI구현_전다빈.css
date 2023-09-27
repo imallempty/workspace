@@ -1,0 +1,59 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+table {
+  width: 600px;
+  height: 450px;
+  border-radius: 20px;
+  margin: 50px auto;
+  padding: 0px 50px;
+}
+
+
+
+tbody>tr>td:first-of-type {
+  font-weight: bold;
+  font-size: 18px;
+  width: 150px;
+}
+
+tbody>tr>td:last-of-type {
+  font-size: 12px;
+}
+
+.signup-input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+#input-email-id {
+  width: 40%;
+}
+
+#input-email-address {
+  width: 50%;
+}
+
+button {
+  margin: 30px;
+  background-color: #068FFF;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+
+.check {
+  color: green;
+}
+
+.error {
+  color: red;
+}

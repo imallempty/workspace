@@ -67,7 +67,7 @@ inputPw.addEventListener("input", e => {
   const val = inputPw.value.trim();
   inputPw.value = val; // 공백이 제거된 값을 input 값으로 대입
 
-  const span = e.target.nextElementSibling.nextElementSibling
+  const span = e.target.nextElementSibling.nextElementSibling;
 
   if (val.length === 0) { // 입력된 값이 없을 경우
     span.innerText = "영어, 숫자 , !, !,@,#,$,%,^,&,*, 8~20글자 사이";
