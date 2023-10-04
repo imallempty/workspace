@@ -1,0 +1,49 @@
+package edu.kh.jsp.dto;
+
+public class Book {
+	private String title;
+	private String writer;
+	private int price;
+	
+	public Book() {} // 기본 생성자
+
+	public Book(String title, String writer, int price) {
+		super();
+		this.title = title;
+		this.writer = writer;
+		this.price = price;
+	}
+
+	public int getPrice() {
+		return price;
+	}
+
+	public void setPrice(int price) {
+		this.price = price;
+	}
+
+	public String getTitle() {
+		return title;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
+	}
+
+	public String getWriter() {
+		return writer;
+	}
+
+	public void setWriter(String writer) {
+		this.writer = writer;
+	}
+
+	@Override
+	public String toString() {
+		return String.format("%s / %s / %d", title, writer, price);
+	}
+	
+	
+	
+	
+}
