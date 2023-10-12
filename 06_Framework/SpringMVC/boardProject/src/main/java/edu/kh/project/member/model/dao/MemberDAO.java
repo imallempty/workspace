@@ -8,4 +8,6 @@ public interface MemberDAO {
 
 	Member login(Member inputMember);
 
+	int signup(Member inputMember);
+
 }
