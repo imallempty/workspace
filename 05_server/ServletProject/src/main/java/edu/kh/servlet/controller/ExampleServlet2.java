@@ -15,7 +15,7 @@ import jakarta.servlet.http.HttpServletResponse;
 // 3) 제출된 데이터(파라미터) 꺼내기
 // 4) 필요한 로직 처리
 // 5) 응답 형태 지정(setContentType)
-// 6) 응답용 스트링 얻어오기
+// 6) 응답용 스트림 얻어오기
 // 7) HTML 코드 출력하기
 
 // 어노테이션(Annotation): 컴파일러가 읽는 주석(설명)

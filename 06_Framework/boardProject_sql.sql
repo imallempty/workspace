@@ -73,6 +73,27 @@ WHERE MEMBER_NO = 3;
 
 COMMIT;
 
+-- 회원 정보 수정
+UPDATE "MEMBER" 
+SET MEMBER_NICKNAME = '' , MEMBER_TEL ='' ,MEMBER_ADDRESS =''
+WHERE MEMBER_NO = ;
+
+-- BCrypt 암호화 시 비밀번호를 조회한 후
+-- matches() 메서드를 이용해서 비교
+-- 로그인한 회원의 암호화된 비밀번호 조회
+SELECT MEMBER_PW
+FROM "MEMBER" 
+WHERE MEMBER_NO = 회원번호;
+
+-- 비밀번호 변경
+UPDATE "MEMBER"
+SET MEMBER_PW = '변경된 비밀번호'
+WHERE MEMBER_NO = '회원 번호'
+
+-- 회원 탈퇴
+UPDATE "MEMBER" 
+SET MEMBER_DEL_FL = 
+WHERE MEMBER_NO =
 
 
 
