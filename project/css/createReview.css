@@ -28,3 +28,33 @@ body {
 main{
   width: 144rem;
 }
+
+.auto-group-ul5n-9PE {
+  height: 8.2rem;
+  box-sizing: border-box;
+  padding: 0.7rem 3.4rem 0.7rem 67.7rem;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 0.4rem 0.4rem rgba(0, 0, 0, 0.150000006);
+  background-color: #ffffff;
+  margin-bottom: 9.1rem;
+  flex-shrink: 0;
+
+  .auto-group-6wrg-Bz8 {
+    width: 6.8rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1.4475;
+    white-space: nowrap;
+    height: 100%;
+    font-size: 1.6rem;
+    font-family: Noto Sans KR, 'Source Sans Pro';
+    background-color: #66b97e;
+    margin-right: 39.9rem;
+    font-weight: 700;
+    color: #000000;
+    border-radius: 3.4rem;
+    flex-shrink: 0;
+  }

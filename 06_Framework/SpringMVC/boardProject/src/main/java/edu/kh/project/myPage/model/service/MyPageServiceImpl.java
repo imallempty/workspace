@@ -21,7 +21,7 @@ public class MyPageServiceImpl implements MyPageService{
 	private MyPageDAO dao;
 	
 	@Autowired // spring-security.xml 참고
-	private BCryptPasswordEncoder bcrpt;
+	private BCryptPasswordEncoder bcrypt;
 	
 	
 	// 정상 수행 시 commit, 예외 발생 시 rollback
@@ -58,7 +58,7 @@ public class MyPageServiceImpl implements MyPageService{
 		//    다르면  -> return 0
 		
 		// BCrypt에서 제공하는 matches() 이용
-		if(bcrpt.matches(currentPw, encPw)) {
+		if(bcrypt.matches(currentPw, encPw)) {
 			// 현재 비밀번호와 조회한 비밀번호가 다른 경우
 			return 0;
 		}
@@ -67,7 +67,7 @@ public class MyPageServiceImpl implements MyPageService{
 		//    -> mybatis는 파라미터를 하나만 전달할 수 있기 때문에
 		
 		Map<String, Object> map = new HashMap<String, Object>();
-		map.put("newPw", bcrpt.encode(newPw));
+		map.put("newPw", bcrypt.encode(newPw));
 		map.put("memberNo", memberNo);
 		
 		// 4. DAO 메서드 호출 후 반환된 결과를 Controller로 반환 + @Transactional
@@ -82,11 +82,10 @@ public class MyPageServiceImpl implements MyPageService{
 		// 로그인한 회원의 비밀번호가 DB에 저장된 비밀번호가 같다면 회원 탈퇴 수행 후 결과 반환
 		String encPw = dao.selectMemberPw(memberNo);
 		
-		if(!bcrpt.matches(encPw,memberPw) {
+		if(!bcrypt.matches(memberPw, encPw)) { // 다르면
 			return 0;
 		}
 		
-	
 		return dao.secession(memberNo);
 	}
 	

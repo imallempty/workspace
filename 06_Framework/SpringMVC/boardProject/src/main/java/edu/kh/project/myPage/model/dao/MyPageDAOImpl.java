@@ -41,7 +41,7 @@ public class MyPageDAOImpl implements MyPageDAO{
 	
 	@Override
 	public int secession(int memberNo) {
-		return sqlSession.update("myPageMapper.secession)", memberNo);
+		return sqlSession.update("myPageMapper.secession", memberNo);
 	}
 
 	
