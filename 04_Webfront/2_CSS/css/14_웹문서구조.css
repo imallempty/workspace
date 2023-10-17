@@ -152,7 +152,7 @@ nav a:hover{
   min-height: 800px;
 
   display: flex;
-  flex-direction: r;
+  flex-direction: row;
   justify-content: flex-start;
   align-items: stretch; /* .content-1/2 을 세로 방향을 꽉 채움 */
 }
