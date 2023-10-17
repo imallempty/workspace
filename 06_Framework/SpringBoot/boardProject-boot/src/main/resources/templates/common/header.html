@@ -12,12 +12,10 @@
 
             <form action="#" method="GET">
 
-                <fieldset> 
+                <fieldset>
 
                     <!--  autocomplete="off" : 브라우저 제공 자동완성 off -->
-                    <input type="search" name="query" id="query"
-                    placeholder="검색어를 입력해주세요."
-                    autocomplete="off" >
+                    <input type="search" name="query" id="query" placeholder="검색어를 입력해주세요." autocomplete="off">
 
                     <!-- 제목 검색 -->
                     <input type="hidden" name="key" value="t">
@@ -40,20 +38,23 @@
     <!-- 우측 상단 드롭다운 메뉴 -->
     <div class="header-top-menu">
         <!-- 로그인 X -->
-        <a href="/">메인 페이지</a> | <a href="/member/login">로그인</a>
-
+        <th:block th:if="${session.loginMember == null}">
+            <a href="/">메인 페이지</a> | <a href="/member/login">로그인</a>
+        </th:block>
 
         <!-- 로그인 O -->
-        <label for="headerMenuToggle">
-           회원 닉네임 <i class="fa-solid fa-caret-down"></i>
-        </label>
+        <th:block th:unless="${session.loginMember == null}">
+            <label for="headerMenuToggle" th:text="${session.loginMember.memberNickname}">
+                [[${session.loginMember.memberNickna}]] <i class="fa-solid fa-caret-down"></i>
+            </label>
 
-        <input type="checkbox" id="headerMenuToggle">
+            <input type="checkbox" id="headerMenuToggle">
 
-        <div class="header-menu">
-            <a href="/myPage/info">내정보</a>
-            <a href="/member/logout">로그아웃</a>
-        </div>
+            <div class="header-menu">
+                <a href="/myPage/info">내정보</a>
+                <a href="/member/logout">로그아웃</a>
+            </div>
+        </th:block>
 
     </div>
 
@@ -66,6 +67,6 @@
         <li><a href="#">자유 게시판</a></li>
         <li><a href="#">질문 게시판</a></li>
         <li><a href="#">FAQ</a></li>
-        <li><a href="#">1:1문의</a></li> 
+        <li><a href="#">1:1문의</a></li>
     </ul>
 </nav>
