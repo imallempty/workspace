@@ -1,27 +1,26 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Page</title>
 
-    <%-- common.jsp  include --%>
-    <jsp:include page="/WEB-INF/views/common/common.jsp" />
+    <th:block th:replace="~{common/common}"></th:block>
 
-    <link rel="stylesheet" href="/resources/css/myPage/myPage-style.css">
+    <link rel="stylesheet" href="/css/myPage/myPage-style.css">
 
 </head>
+
 <body>
     <main>
-    <%-- header.jsp  include --%>
-        <jsp:include page="/WEB-INF/views/common/header.jsp"/>
+        <th:block th:replace="~{common/header}"></th:block>
 
         <!-- 마이페이지 - 내 정보 -->
         <section class="myPage-content">
-            
-            <%-- sideMenu.jsp  include --%>
-			<jsp:include page="/WEB-INF/views/myPage/sideMenu.jsp"/>
+
+            <th:block th:replace="~{myPage/sideMenu}"></th:block>
 
             <section class="myPage-main">
 
@@ -32,10 +31,10 @@
 
                     <div class="myPage-row">
                         <label>비밀번호</label>
-                        <input type="password" name="memberPw" id="memberPw" maxlength="30">              
+                        <input type="password" name="memberPw" id="memberPw" maxlength="30">
                     </div>
 
-                    
+
                     <div class="myPage-row info-title">
                         <label>회원 탈퇴 약관</label>
                     </div>
@@ -82,9 +81,9 @@
 
     </main>
 
-    <%-- footer.jsp  include --%>
-	<jsp:include page="/WEB-INF/views/common/footer.jsp"/>
+    <th:block th:replace="~{common/footer}"></th:block>
 
-    <script src="/resources/js/myPage/myPage.js"></script>
+    <script src="/js/myPage/myPage.js"></script>
 </body>
+
 </html>

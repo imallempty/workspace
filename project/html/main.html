@@ -5,12 +5,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>리뷰 작성하기</title>
-  <link rel="stylesheet" href="../css/createReview.css">
-  <link href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet">
-  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-  <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
-  <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
+  <link rel="stylesheet" href="../css/main.css">
+
 
 </head>
 
@@ -42,18 +38,18 @@
       <section class="content-1">
         <form action="#" method="post">
 
-          <div>
-            <label for="title">제목:</label>
-            <input type="text" class="textbox" name="title">
+          <div id="title-area">
+            <label for="title" id="title">제목:</label>
+            <input type="text" class="textbox" id="input-title" name="title">
           </div>
 
-          <div>
-            <label for="location">위치:</label>
+          <div id="location-area">
+            <label for="location" id="location">위치:</label>
             <input type="text" class="textbox" name="location">
           </div>
 
           <div class="rating-option-section">
-            <label>평점</label>
+            <label id="rating">평점</label>
             <div class="rating-option">
               <label>맛 : </label>
               <i class="fa-sharp fa-solid fa-star fa-2xl" style="color: #f1c93b;"></i>
@@ -64,7 +60,7 @@
             </div>
 
             <div class="rating-option">
-              <label for="quantity">양: </label>
+              <label for="quantity" id="quantity">양: </label>
               <i class="fa-sharp fa-solid fa-star fa-2xl" style="color: #f1c93b;"></i>
               <i class="fa-sharp fa-solid fa-star fa-2xl" style="color: #f1c93b;"></i>
               <i class="fa-sharp fa-solid fa-star fa-2xl" style="color: #f1c93b;"></i>
@@ -73,7 +69,7 @@
             </div>
 
             <div class="rating-option">
-              <label for="cleanliness">청결도: </label>
+              <label for="cleanliness" id="cleanliness">청결도: </label>
               <i class="fa-sharp fa-solid fa-star fa-2xl" style="color: #f1c93b;"></i>
               <i class="fa-sharp fa-solid fa-star fa-2xl" style="color: #f1c93b;"></i>
               <i class="fa-sharp fa-solid fa-star fa-2xl" style="color: #f1c93b;"></i>
@@ -82,18 +78,18 @@
             </div>
           </div>
 
-          <div>
-            <label for="menu">내가 먹은 메뉴: </label>
-            <textarea name="content" id="summernote" class="summernote"></textarea>
+          <div id="menu-area">
+            <label for="menu" id="menu">내가 먹은 메뉴: </label>
+            <input type="text" class="textbox" id="input-menu" name="menu">
           </div>
 
-          <div>
-            <label for="comment">한줄평: </label>
-            <textarea name="Writereview" cols="30" rows="10"></textarea>
+          <div id="comment-area">
+            <label for="comment" id="comment">한줄평: </label>
+            <textarea id="Writereview"></textarea>
           </div>
 
-          <div>
-            <label for="image">이미지 첨부: </label>
+          <div id="image-area">
+            <label for="image" id="image-text">이미지 첨부: </label>
             <input type="file" id="image">
           </div>
 
@@ -122,15 +118,8 @@
   </footer>
 
   <script src="https://kit.fontawesome.com/39f6050202.js" crossorigin="anonymous"></script>
-  <script>
-  $(document).ready(function() {
-    $('#summernote').summernote({
-      width: 500,      // Set the width (in pixels)
-      height: 300,     // Set the height (in pixels)
-      placeholder: "내용을 입력해주세요" // Set a placeholder text
-    });
-  });
-  </script>
+  <script src="../js/main.js"></script>
+
 </body>
 
 </html>

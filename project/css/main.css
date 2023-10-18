@@ -1,0 +1,270 @@
+:root {
+  font-size: 62.5%;
+
+  --main-color: #66B97E;
+  --footer-color: #d9d9d9;
+}
+
+* {
+  font-family: 'GmarketSansMedium';
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+@font-face {
+  font-family: 'GmarketSansMedium';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/*-------- header --------*/
+
+header {
+  height: 8rem;
+  border-bottom: 2px solid var(--footer-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* 로고 */
+header>section:first-child {
+  width: 55%;
+  display: flex;
+  justify-content: end;
+}
+
+/* 헤더메뉴 섹션 */
+header>section:last-child {
+  width: 45%;
+  display: flex;
+  justify-content: end;
+}
+
+/* 헤더 메뉴들 */
+header article {
+  padding: 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+header a {
+  color: var(--main-color);
+  text-decoration: none;
+  font-size: 1.6rem;
+}
+
+/*-------- main -----------*/
+.content{
+  display: flex;
+  flex-direction: column;
+  justify-self: center;
+  align-items: center;
+}
+
+.textbox{
+  border: none;
+  width: 70.4rem;
+  height: 5.3rem;
+  background-color: #f5f5f5;
+  border-radius: 0.3rem;
+  flex-shrink: 0;
+}
+
+h3{
+  margin: 2.4rem;
+  font-size: 2.8rem;
+  font-weight: 700;
+  color: #66b97e;
+  text-align: center;
+}
+
+.content-1{
+  margin: 3rem;
+}
+
+#title-area{
+  margin: 0rem 32rem 2.8rem 25.1rem;
+  width: calc(100% - 57.1rem);
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+#title{
+  margin: 0rem 9.1rem 0.2rem 0rem;
+  font-size: 1.6rem;
+  font-weight: 500;
+  line-height: 1.2575;
+  color: #000000;
+  font-family: Gmarket Sans TTF, 'Source Sans Pro';
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+#location-area{
+  margin: 0rem 31.3rem 3.3rem 25.1rem;
+  width: calc(100% - 56.4rem);
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+#location{
+  margin: 0rem 9.1rem 0.2rem 0rem;
+  font-size: 1.6rem;
+  font-weight: 500;
+  line-height: 1.2575;
+  color: #000000;
+  font-family: Gmarket Sans TTF, 'Source Sans Pro';
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.rating-option-section{
+  margin: 0rem 32.4rem 4.6rem 25.1rem;
+  width: calc(100% - 57.5rem);
+  display: flex;
+  align-items: flex-end;
+  flex-shrink: 0;
+}
+
+#rating{
+  margin: 0rem 9.8rem 0.1rem 0rem;
+  font-size: 1.6rem;
+  font-weight: 500;
+  line-height: 1.2575;
+  color: #000000;
+  font-family: Gmarket Sans TTF, 'Source Sans Pro';
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+#quantity{
+  margin: 0rem 1.8rem 0.1rem 0rem;
+  font-size: 1.6rem;
+  font-weight: 500;
+  line-height: 1.2575;
+  color: #000000;
+  font-family: Gmarket Sans TTF, 'Source Sans Pro';
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+#cleanliness{
+  margin: 0rem 1.8rem 0.1rem 0rem;
+  font-size: 1.6rem;
+  font-weight: 500;
+  line-height: 1.2575;
+  color: #000000;
+  font-family: Gmarket Sans TTF, 'Source Sans Pro';
+  white-space: nowrap;
+  flex-shrink: 0;
+  
+}
+
+#menu-area{
+  margin: 0rem 31.3rem 3.1rem 21.6rem;
+  width: calc(100% - 52.9rem);
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+
+#menu{
+  margin: 0rem 5.9rem 0.2rem 0rem;
+  font-size: 1.6rem;
+  font-weight: 500;
+  line-height: 1.2575;
+  color: #000000;
+  font-family: Gmarket Sans TTF, 'Source Sans Pro';
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+
+
+#comment-area{
+  margin: 0rem 31.3rem 4rem 24.3rem;
+  width: calc(100% - 55.6rem);
+  height: 15.8rem;
+  display: flex;
+  align-items: flex-start;
+  flex-shrink: 0;
+}
+
+#comment{
+  margin: 1.3rem 8.7rem 0rem 0rem;
+  font-size: 1.6rem;
+  font-weight: 500;
+  line-height: 1.2575;
+  color: #000000;
+  font-family: Gmarket Sans TTF, 'Source Sans Pro';
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+#Writereview{
+  width: 70.4rem;
+  height: 10rem;
+  background-color: #f5f5f5;
+  border-radius: 0.3rem;
+  flex-shrink: 0;
+  border: none;
+}
+
+#image-area{
+  margin: 0rem 31.3rem 3.3rem 25.1rem;
+  width: calc(100% - 56.4rem);
+  display: flex;
+  align-items: center;
+  flex-shrink: 0; 
+}
+
+#image-text{
+  margin: 1.3rem 9.7rem 0rem 0rem;
+  font-size: 1.6rem;
+  font-weight: 500;
+  line-height: 1.2575;
+  color: #000000;
+  font-family: Gmarket Sans TTF, 'Source Sans Pro';
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.content-2{
+  display: flex;
+  align-items: center;
+  justify-items: center;
+}
+
+
+
+/*-------- footer --------*/
+
+footer {
+  width: 100%;
+  height: 4rem;
+  background-color: var(--footer-color);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-size: 1.2rem;
+  font-weight: 1;
+  color: rgba(130, 130, 130, 1);
+}
+
+footer>article {
+  padding: 1.5rem;
+}
+
+footer a {
+  color: rgba(130, 130, 130, 1);
+  text-decoration: none;
+}
