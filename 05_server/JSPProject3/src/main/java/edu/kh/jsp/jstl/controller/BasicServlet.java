@@ -13,12 +13,10 @@ public class BasicServlet extends HttpServlet{
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
+	
 		String path = "/WEB-INF/views/jstl/basic.jsp";
 		
 		// 요청 위임
 		req.getRequestDispatcher(path).forward(req, resp);
-		
 	}
-
 }

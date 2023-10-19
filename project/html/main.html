@@ -39,67 +39,68 @@
         <form action="#" method="post">
 
           <div id="title-area">
-            <label for="title" id="title">제목:</label>
+            <label for="title" class="title" id="title">제목:</label>
             <input type="text" class="textbox" id="input-title" name="title">
           </div>
 
           <div id="location-area">
-            <label for="location" id="location">위치:</label>
+            <label for="location" class="title" id="location">위치:</label>
             <input type="text" class="textbox" name="location">
           </div>
 
           <div class="rating-option-section">
-            <label id="rating">평점</label>
+            <label id="rating" class="title">평점</label>
             <div class="rating-option">
-              <label>맛 : </label>
-              <i class="fa-sharp fa-solid fa-star fa-2xl" style="color: #f1c93b;"></i>
-              <i class="fa-sharp fa-solid fa-star fa-2xl" style="color: #f1c93b;"></i>
-              <i class="fa-sharp fa-solid fa-star fa-2xl" style="color: #f1c93b;"></i>
-              <i class="fa-sharp fa-solid fa-star fa-2xl" style="color: #f1c93b;"></i>
-              <i class="fa-sharp fa-solid fa-star fa-2xl" style="color: #f1c93b;"></i>
+              <label for="taste" id="taste">맛 : </label>
+              <i class="fa-regular fa-star"  style="color: #f1c93b;"></i>
+              <i class="fa-regular fa-star" style="color: #f1c93b;"></i>
+              <i class="fa-regular fa-star" style="color: #f1c93b;"></i>
+              <i class="fa-regular fa-star" style="color: #f1c93b;"></i>
+              <i class="fa-regular fa-star" style="color: #f1c93b;"></i>
             </div>
 
             <div class="rating-option">
               <label for="quantity" id="quantity">양: </label>
-              <i class="fa-sharp fa-solid fa-star fa-2xl" style="color: #f1c93b;"></i>
-              <i class="fa-sharp fa-solid fa-star fa-2xl" style="color: #f1c93b;"></i>
-              <i class="fa-sharp fa-solid fa-star fa-2xl" style="color: #f1c93b;"></i>
-              <i class="fa-sharp fa-solid fa-star fa-2xl" style="color: #f1c93b;"></i>
-              <i class="fa-sharp fa-solid fa-star fa-2xl" style="color: #f1c93b;"></i>
+              <i class="fa-regular fa-star" style="color: #f1c93b;"></i>
+              <i class="fa-regular fa-star" style="color: #f1c93b;"></i>
+              <i class="fa-regular fa-star" style="color: #f1c93b;"></i>
+              <i class="fa-regular fa-star" style="color: #f1c93b;"></i>
+              <i class="fa-regular fa-star" style="color: #f1c93b;"></i>
             </div>
 
             <div class="rating-option">
               <label for="cleanliness" id="cleanliness">청결도: </label>
-              <i class="fa-sharp fa-solid fa-star fa-2xl" style="color: #f1c93b;"></i>
-              <i class="fa-sharp fa-solid fa-star fa-2xl" style="color: #f1c93b;"></i>
-              <i class="fa-sharp fa-solid fa-star fa-2xl" style="color: #f1c93b;"></i>
-              <i class="fa-sharp fa-solid fa-star fa-2xl" style="color: #f1c93b;"></i>
-              <i class="fa-sharp fa-solid fa-star fa-2xl" style="color: #f1c93b;"></i>
+              <i class="fa-regular fa-star" style="color: #f1c93b;"></i>
+              <i class="fa-regular fa-star" style="color: #f1c93b;"></i>
+              <i class="fa-regular fa-star" style="color: #f1c93b;"></i>
+              <i class="fa-regular fa-star" style="color: #f1c93b;"></i>
+              <i class="fa-regular fa-star" style="color: #f1c93b;"></i>
             </div>
           </div>
 
           <div id="menu-area">
-            <label for="menu" id="menu">내가 먹은 메뉴: </label>
+            <label for="menu" class="title" id="menu">내가 먹은 메뉴: </label>
             <input type="text" class="textbox" id="input-menu" name="menu">
+          </div>
+         
+          <div id="image-area">
+            <label for="image" class="title" id="image-text">이미지 첨부: </label>
+            <input type="file" id="image">
           </div>
 
           <div id="comment-area">
-            <label for="comment" id="comment">한줄평: </label>
+            <label for="comment" class="title" id="comment">한줄평: </label>
             <textarea id="Writereview"></textarea>
           </div>
 
-          <div id="image-area">
-            <label for="image" id="image-text">이미지 첨부: </label>
-            <input type="file" id="image">
-          </div>
 
 
         </form>
       </section>
 
       <section class="content-2">
-        <button id="save-btn">임시저장</button>
-        <button id="submit-btn">등록</button>
+        <button  id="save-btn">임시저장</button>
+        <button type="submit" id="submit-btn">등록</button>
       </section>
 
     </section>

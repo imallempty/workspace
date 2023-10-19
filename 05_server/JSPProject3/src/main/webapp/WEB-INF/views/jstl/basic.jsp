@@ -15,8 +15,6 @@
   (참고) URL(Uniform Resource Locator, 통합 자원 경로) : 자원의 위치를 나타내는 문자열 (주소, 경로)
 --%>
 
-
-
 <!DOCTYPE html>
 <html lang="ko">
 <head>

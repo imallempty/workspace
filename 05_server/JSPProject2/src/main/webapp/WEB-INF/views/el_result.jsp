@@ -67,11 +67,11 @@
   </pre>
 
   <ul>
-    <li> test1 = null; ->   ${empty test1}</li>
-    <li> test2 = ""; ->     ${empty test2}</li>
-    <li> test3 = null; ->   ${empty test3}</li>
-    <li> test4 = new ArrayList<String>(); ->  ${empty test4}</li> 
-    <li> test5 = new ArrayList<String>(); + add()->  ${empty test5}</li>
+    <li> test1 = null; -> ${empty test1}</li>
+    <li> test2 = ""; -> ${empty test2}</li>
+    <li> test3 = null; -> ${empty test3}</li>
+    <li> test4 = new ArrayList<String>(); -> ${empty test4}</li> 
+    <li> test5 = new ArrayList<String>(); + add()-> ${empty test5}</li>
   </ul>
  
 

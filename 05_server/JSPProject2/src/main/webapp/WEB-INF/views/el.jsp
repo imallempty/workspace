@@ -39,9 +39,10 @@
 
   <hr>
 
-  <h2> EL 테스트(POST 방식)</h2>
-  <form action="/el" method = "POST">
-    날짜 : <input type="date" name = "inputDate">
+
+  <h2>EL 테스트 (POST 방식) </h2>
+  <form action="/el" method="POST">
+    날짜 : <input type="date" name="inputDate">
     <button>제출</button>
   </form>
 
