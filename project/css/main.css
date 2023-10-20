@@ -81,7 +81,7 @@ header a {
 
 
 h3{
-  margin: 2.4rem;
+  margin: 10rem 0rem 5rem 0rem;
   font-size: 2.8rem;
   font-weight: 700;
   color: #66b97e;
@@ -230,7 +230,7 @@ h3{
 }
 
 #image-area{
-  margin: 0rem 31.3rem 3.3rem 25.1rem;
+  margin: 0rem 31.3rem 3.3rem 23.1rem;
   width: calc(100% - 56.4rem);
   display: flex;
   align-items: center;
@@ -238,7 +238,7 @@ h3{
 }
 
 #image-text{
-  margin-right: 4rem;
+  margin-right: 6.5rem;
   font-size: 1.6rem;
   font-weight: 500;
   line-height: 1.2575;
@@ -273,7 +273,7 @@ h3{
 }
 
 #save-btn + #submit-btn {
-  margin-left: 1rem; /* 원하는 간격 설정 */
+  margin-left: 0.3rem; 
 }
 
 
