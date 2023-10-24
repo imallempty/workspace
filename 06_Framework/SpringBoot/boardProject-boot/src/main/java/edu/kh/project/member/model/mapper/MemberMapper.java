@@ -43,6 +43,10 @@ public interface MemberMapper {
 	 * @return
 	 */
 	Member login(String memberEmail);
+
+	int checkEmail(String email);
+
+	int checkNickname(String nickname);
 }
 
 

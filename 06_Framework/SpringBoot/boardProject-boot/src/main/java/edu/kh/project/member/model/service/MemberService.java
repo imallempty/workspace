@@ -23,6 +23,13 @@ public interface MemberService {
 	 */
 	Member quicklLogin(String memberEmail);
 
-	int selectMember(String inputEmail);
+
+	/** 이메일 중복 검사
+	 * @param email
+	 * @return
+	 */
+	int checkEmail(String email);
+
+	int checkNickname(String nickname);
 
 }

@@ -9,7 +9,7 @@
 	 -->
 
 	<!-- 로그인 + 빠른 로그인 -->
-	<select id="login"  resultType="Member">
+	<select id="login" resultType="Member">
 		SELECT MEMBER_NO, MEMBER_EMAIL, MEMBER_NICKNAME , MEMBER_PW,
 		MEMBER_TEL , MEMBER_ADDRESS , PROFILE_IMG , AUTHORITY ,
 		TO_CHAR(ENROLL_DATE, 'YYYY"년" MM"월" DD"일" HH24"시" MI"분" SS"초"') AS
@@ -29,7 +29,20 @@
 		)
 	</insert>
 
-
+	<select id="checkEmail" resultType="_int">
+		SELECT COUNT(*)
+		FROM "MEMBER"
+		WHERE MEMBER_DEL_FL = 'N'
+		AND MEMBER_EMAIL = #{email}
+	</select>
+	
+		<select id="checkNickname" resultType="_int">
+		SELECT COUNT(*)
+		FROM "MEMBER"
+		WHERE MEMBER_DEL_FL = 'N'
+		AND MEMBER_NICKNAME = #{nickname}
+	</select>
+	
 
 
 </mapper>
