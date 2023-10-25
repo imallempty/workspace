@@ -1,6 +1,7 @@
 package edu.kh.project.admin.model.mapper;
 
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.annotations.Mapper;
 
@@ -24,5 +25,16 @@ public interface AjaxMapper {
 	Member selectMember(int no);
 
 	List<String> selectEmailList(String keyword);
+
+	/** 회원 번호 전체 조회
+	 * @return memberList
+	 */
+	List<Member> selectAll();
+
+	/** 회원 탈퇴여부 변경
+	 * @param paramMap
+	 * @return
+	 */
+	int updateFlag(Map<String, Object> paramMap);
 	
 }
