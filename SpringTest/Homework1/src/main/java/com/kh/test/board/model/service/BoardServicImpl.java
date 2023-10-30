@@ -33,13 +33,13 @@ public class BoardServicImpl implements BoardService {
 	
 	@Override
 	public int insert(Board board) {
+		// 비밀번호 암호화 후 board에 세팅
 		board.setBoardPw(bcrypt.encode(board.getBoardPw()));
 		return mapper.insert(board);
 	}
 	
 	@Override
 	public int deleteBoard(String boardPw, int boardNo) {
-		
 		// 게시글 번호를 이용해 암호화된 비밀번호 조회
 		String encPw = mapper.selectBoardPw(boardNo);
 		
@@ -62,6 +62,7 @@ public class BoardServicImpl implements BoardService {
 		// 일치하면 게시글 상세 조회 결과 반환
 		return mapper.selectOne(boardNo);
 	}
+	
 	
 	@Override
 	public int updateBoard(Board board) {

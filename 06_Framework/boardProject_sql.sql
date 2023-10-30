@@ -557,7 +557,7 @@ ORDER SIBLINGS BY COMMENT_NO;
 -- 대댓글 샘플데이터 삽입
 INSERT INTO "COMMENT" 
       VALUES(SEQ_COMMENT_NO.NEXTVAL, '자식 댓글 1', DEFAULT, DEFAULT,
-            3, 1500, 4338);     
+            3, 1500, 1365);     
            
-COMMIT
+COMMIT;
      

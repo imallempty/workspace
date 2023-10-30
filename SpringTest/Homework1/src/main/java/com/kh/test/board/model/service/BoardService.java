@@ -12,18 +12,18 @@ public interface BoardService {
 	 */
 	List<Board> selectBoardList();
 
-	/** 게시글 상세조회(게시글 번호 이용)
+	/**  게시글 상세 조회
 	 * @param no
-	 * @return 
+	 * @return board
 	 */
 	Board selectOne(int no);
-
-	/** 게시글 작성(해당 문제에서는 실패하는 경우가 없음)
+	
+	/** 게시글 작성
 	 * @param board
-	 * @return
+	 * @return result
 	 */
 	int insert(Board board);
-
+	
 	/** 비밀번호 일치 시 삭제
 	 * @param boardPw
 	 * @param boardNo
@@ -34,14 +34,16 @@ public interface BoardService {
 	/** 비밀번호 일치 시 수정 화면으로 전환
 	 * @param boardPw
 	 * @param boardNo
-	 * @return
+	 * @return board
 	 */
 	Board moveUpdate(String boardPw, int boardNo);
 
 	/** 게시글 수정
 	 * @param board
-	 * @return
+	 * @return result
 	 */
 	int updateBoard(Board board);
+
+	
 
 }

@@ -15,36 +15,30 @@ import com.kh.test.board.model.service.BoardService;
 @RequestMapping("board")
 public class BoardController {
 
-	// BoardService 의존성 주입
 	@Autowired
 	private BoardService service;
 	
 	
 	/** 게시글 상세조회(게시글 번호 이용)
 	 * @param no : 게시글 번호
-	 * @param model : 데이터 전달 객체
-	 * @param ra : 리다이렉트 시 request scope로 데이터 전달 
+	 * @param model
+	 * @param ra
 	 * @return board/selectOne
 	 */
-	@GetMapping("selectOne") // board/selectOne(GET)
+	@GetMapping("selectOne")
 	public String selectOne(int no, Model model, RedirectAttributes ra) {
 		
-		// 게시글 상세조회 서비스 조회
 		Board board = service.selectOne(no);
 		
-		// 일치하는 게시글 번호가 있을 경우
 		if(board != null) {
 			model.addAttribute("board", board);
 			return "board/selectOne";
 		}
 		
-		// 일치하는 게시글 번호가 없는 경우
 		ra.addFlashAttribute("message", "존재하지 않는 게시글 입니다");
 		return "redirect:/";
 	}
 	
-	
-	// 게시글 작성 페이지 forward
 	@GetMapping("insert")
 	public String insert() {
 		return "board/insert";
@@ -53,10 +47,10 @@ public class BoardController {
 	
 	/** 게시글 작성(해당 문제에서는 실패하는 경우가 없음)
 	 * @param board
-	 * @param ra : 리다이렉트 시 request scope로 데이터 전달 
+	 * @param ra
 	 * @return
 	 */
-	@PostMapping("insert")  
+	@PostMapping("insert")
 	public String insert(Board board, RedirectAttributes ra) {
 		
 		int result = service.insert(board);
