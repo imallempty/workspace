@@ -560,4 +560,44 @@ INSERT INTO "COMMENT"
             3, 1500, 1365);     
            
 COMMIT;
+
+
+SELECT * FROM BOARD_LIKE;
      
+-- 좋아요 여부 확인(1 좋아요 누름, 0 좋아요 안누름)
+SELECT COUNT(*) FROM BOARD_LIKE 
+WHERE BOARD_NO = 1499
+AND MEMBER_NO = 3;
+
+-- 좋아요 테이블에서 행 삭제
+DELETE FROM BOARD_LIKE 
+WHERE BOARD_NO = 
+AND MEMBER_NO =
+
+-- 좋아요 테이블에 행 삽입
+SELECT 
+FROM BOARD_LIKE
+WHERE BOARD_NO = 
+AND MEMBER_NO =
+
+
+
+
+
+
+
+
+
+
+
+
+AND MEMBER_NO = 3;
+AND MEMBER_NO = 3;
+AND MEMBER_NO = 3;
+AND MEMBER_NO = 3;
+AND MEMBER_NO = 3;
+AND MEMBER_NO = 3;
+AND MEMBER_NO = 3;
+AND MEMBER_NO = 3;
+AND MEMBER_NO = 3;
+AND MEMBER_NO = 3;
