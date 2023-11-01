@@ -580,8 +580,12 @@ FROM BOARD_LIKE
 WHERE BOARD_NO = 
 AND MEMBER_NO =
 
+-- 회원 프로필 이미지 추가
+UPDATE "MEMBER" SET 
+PROFILE_IMG = '/images/member/profile-sample.jpg'
+WHERE MEMBER_NO = 3;
 
-
+COMMIT;
 
 
 
