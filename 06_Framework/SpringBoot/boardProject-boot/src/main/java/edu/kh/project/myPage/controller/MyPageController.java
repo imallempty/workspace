@@ -165,7 +165,7 @@ public class MyPageController {
 	// - 업로드된 파일을 지정된 경로에 저장하는 메서드
 	
 	/** 프로필 이미지 수정
-	 * @param profileImg : 실제 업로드된 프로필 이미지
+	 * @param profileImg : 실제 업로드된 프로필 이미지 ( 파일 선택 여부 관련 없이 무조건 객체 생성)
 	 * @param loginMember
 	 * @param ra
 	 * @return
