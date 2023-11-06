@@ -119,7 +119,7 @@ if (imageInput != null) { // #imageInput 존재할 때
 
         // 매개변수에 작성된 파일을 읽어서 파일을 나타내는 URL로 변경
         // -> FileReader.result 필드에 저장되어 있음
-        reader.readAsDataURL(uploadFile)
+        reader.readAsDataURL(uploadFile);
 
         // 파일을 다 읽었을 때 
         reader.onload = e => {

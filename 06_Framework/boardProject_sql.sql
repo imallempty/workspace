@@ -613,7 +613,10 @@ SELECT NEXT_IMG_NO(), '경로3', '변경된 이름3', '원본이름3', 3, 1500 F
 
 ROLLBACK;
 
-
+-- 특정 게시글의 이미지 중 지정된 순서번째 이미지 삭제
+DELETE FROM BOARD_IMG 
+WHERE BOARD_NO  = #{boardNo}
+AND IMG_ORDER IN ()
 
 
 
