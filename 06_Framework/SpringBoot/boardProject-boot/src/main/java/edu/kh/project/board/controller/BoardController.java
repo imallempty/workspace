@@ -21,6 +21,7 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import edu.kh.project.board.model.dto.Board;
+import edu.kh.project.board.model.dto.BoardImg;
 import edu.kh.project.board.model.service.BoardService;
 import edu.kh.project.member.model.dto.Member;
 import jakarta.servlet.http.Cookie;
@@ -78,16 +79,16 @@ public class BoardController {
 	 * @param model       : 데이터 전달용 객체
 	 * @param ra          : 리다이렉트 시 request scope로 데이터 전달
 	 * @param loginMember : 세션에 저장된 로그인 회원 정보(필수 X)
-	 * @param req : 요청 데이터(파라미터, 클라이언트 ip, 요청에 담긴 쿠키)
-	 * @param resp : 응답 방법(스트림, 응답에 쿠키 담아서 보내기)
+	 * @param req         : 요청 데이터(파라미터, 클라이언트 ip, 요청에 담긴 쿠키)
+	 * @param resp        : 응답 방법(스트림, 응답에 쿠키 담아서 보내기)
 	 * @return
-	 * @throws ParseException 
+	 * @throws ParseException
 	 */
 	@GetMapping("{boardCode:[0-9]+}/{boardNo:[0-9]+}")
 	public String boardDetail(@PathVariable("boardCode") int boardCode, @PathVariable("boardNo") int boardNo,
 			Model model, RedirectAttributes ra,
-			@SessionAttribute(value = "loginMember", required = false) Member loginMember,
-			HttpServletRequest req, HttpServletResponse resp) throws ParseException {
+			@SessionAttribute(value = "loginMember", required = false) Member loginMember, HttpServletRequest req,
+			HttpServletResponse resp) throws ParseException {
 
 		// 1. 상세조회 서비스 호출
 		Map<String, Object> map = new HashMap<>();
@@ -219,7 +220,19 @@ public class BoardController {
 			}
 
 			// ----------------------------------------------------
+			if (board.getImageList().size() > 0) {
 
+				BoardImg thumbnail = null;
+				if (board.getImageList().get(0).getImgOrder() == 0) {
+					thumbnail = board.getImageList().get(0);
+				}
+
+				model.addAttribute("thumbnail", thumbnail);
+				model.addAttribute("start", thumbnail != null ? 1 : 0);
+			}
+
+			// 썸네일이 있을 경우 1, 없으면 0을 start로 세팅
+			model.addAttribute("start", board.getThumbnail() != null ? 1 : 0);
 		}
 
 		else { // 게시글이 없을 경우
