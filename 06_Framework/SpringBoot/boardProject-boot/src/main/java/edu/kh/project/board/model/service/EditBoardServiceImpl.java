@@ -63,7 +63,7 @@ public class EditBoardServiceImpl implements EditBoardService {
 		// images : 업로드된 파일(MultipartFile) 리스트
 		
 		// uploadList : images 리스트에서 실제 업로드된 파일의 정보(파일명, 인덱스(순서))만 뽑아서 모아둘 리스트
-		// (uploadList에 모인 데이터를 가지고 DB INSERT)
+		// (uploadList에 모인 데이터를 가지고 DB INSERT) 
 		
 		List<BoardImg> uploadList = new ArrayList<>();
 		
