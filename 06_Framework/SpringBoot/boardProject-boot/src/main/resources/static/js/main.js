@@ -51,7 +51,7 @@ if (memberEmail != null && saveId != null) {
 // 로그인 form 태그
 const loginFrm = document.getElementById("loginFrm");
 
-// 로긩ㄴ form태그 있을 경우(로그인 X 상태)
+// 로그인 form태그 있을 경우(로그인 X 상태)
 if (loginFrm != null) {
 
   // 로그인 form 태그가 sumbit 되는 것을 감지했을 때 함수 수행
