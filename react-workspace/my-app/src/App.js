@@ -12,6 +12,8 @@ import State1 from './components/R06_State1';
 import State2 from './components/R07_State2';
 import State3 from './components/R08_State3';
 
+import TodoList from './components/R09_TodoList';
+
 
 /* ===================================================== */
 /*
@@ -43,7 +45,7 @@ function App() {
       <Props3 name='김민규' />
       <Props3 name='윤성국' /> */}
 
-      <hr />
+      {/* <hr />
       <State1 />
 
       <hr />
@@ -51,7 +53,10 @@ function App() {
       <State2 init={0} />
 
       <hr />
-      <State3 />
+      <State3 /> */}
+
+      <hr/>
+      <TodoList/>
 
 
 
