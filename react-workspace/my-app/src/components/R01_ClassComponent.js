@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 
 
-// 클래스형 컴포넌트 만들기
+// ch 
 // 1. Component 상속 받기
 // 2. render() 함수 작성하기(필수)
 // 3. 만든 class를 export default 지정하기

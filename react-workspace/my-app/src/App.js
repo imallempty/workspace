@@ -14,6 +14,12 @@ import State3 from './components/R08_State3';
 
 import TodoList from './components/R09_TodoList';
 
+import Context1 from './components/R10_Context1'
+import Context2 from './components/R11_Context2'
+import Context3 from './components/R13_Context3/Parent'
+
+
+
 
 /* ===================================================== */
 /*
@@ -43,9 +49,9 @@ function App() {
 
       <hr />
       <Props3 name='김민규' />
-      <Props3 name='윤성국' /> */}
+      <Props3 name='윤성국' />
 
-      {/* <hr />
+      <hr />
       <State1 />
 
       <hr />
@@ -53,10 +59,20 @@ function App() {
       <State2 init={0} />
 
       <hr />
-      <State3 /> */}
+      <State3 />
 
       <hr/>
-      <TodoList/>
+      <TodoList/> */}
+
+      <hr /> <hr />
+      <Context1 />
+
+      <Context2 />
+
+      <Context3 />
+
+
+
 
 
 
@@ -65,3 +81,5 @@ function App() {
 }
 
 export default App;
+
+
